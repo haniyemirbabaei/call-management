@@ -1,0 +1,9 @@
+h2{
+    color:#f4511e;
+    letter-spacing: 3px;
+}
+.btn {
+    border:1px solid #f4511e;
+    color: #f4511e;
+    background-color: #fff;
+}
