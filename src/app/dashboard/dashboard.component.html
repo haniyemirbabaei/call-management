@@ -2,19 +2,27 @@
 <hr />
 <div class="row">
     <div class="col-xs-3">
-        <div class="dropdown">
-            <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+        <div class="dropdown" appAppDropdown>
+            <button class="btn btn-danger btn-block dropdown-toggle" type="button">
                 Order Entry
                 <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Normal</a></li>
-                <li class="disabled"><a href="#">Disabled</a></li>
-                <li class="active"><a href="#">Active</a></li>
+            <ul class="dropdown-menu btn-block">
+                <li *ngFor="let team of teams" [ngClass]="{'active': activeId===team.id}"><a
+                        (click)="selectTeam(team.id)">{{team.name}}</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div class="row" style="margin-top:40px">
-    <div class="col-md-7">chart</div>
-    <div class="col-md-5">number</div>
+    <div class="col-md-7">
+        <div [chart]="chart"></div>
+    </div>
+    <div class="col-md-2">
+        <div class="panel panel-success">
+            <div class="panel-heading">Current active calls</div>
+            <div class="panel-body" style="margin-bottom: 10px;">
+                <h2 class="text-center">{{currentNumber}}</h2>
+            </div>
+        </div>
+    </div>
 </div>
