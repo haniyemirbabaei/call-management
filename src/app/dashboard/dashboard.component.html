@@ -7,7 +7,7 @@
                 Order Entry
                 <span class="caret"></span></button>
             <ul class="dropdown-menu btn-block">
-                <li *ngFor="let team of teams" [ngClass]="{'active': activeId===team.id}"><a
+                <li *ngFor="let team of teams" [ngClass]="{'active': activeId==team.id}" (click)="changeTeam()"><a
                         (click)="selectTeam(team.id)">{{team.name}}</a></li>
             </ul>
         </div>
@@ -15,10 +15,10 @@
 </div>
 <div class="row" style="margin-top:40px">
     <div class="col-md-7">
-        <div [chart]="chart"></div>
+        <div [chart]="chart" *ngIf="showChart"></div>
     </div>
     <div class="col-md-2">
-        <div class="panel panel-success">
+        <div class="panel panel-success" *ngIf="showCallWidget">
             <div class="panel-heading">Current active calls</div>
             <div class="panel-body" style="margin-bottom: 10px;">
                 <h2 class="text-center">{{currentNumber}}</h2>

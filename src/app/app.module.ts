@@ -12,6 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppDropdownDirective } from './shared/app-dropdown.directive';
 import { ChartModule } from 'angular-highcharts';
+import { ShowAdminUsersPipe } from './shared/show-admin-users.pipe';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ChartModule } from 'angular-highcharts';
     UsersComponent,
     SettingsComponent,
     HeaderComponent,
-    AppDropdownDirective
+    AppDropdownDirective,
+    ShowAdminUsersPipe
   ],
   imports: [
     BrowserModule,

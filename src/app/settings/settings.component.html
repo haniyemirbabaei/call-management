@@ -3,13 +3,13 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="checkbox">
-            <label><input type="checkbox" value="">Show admin users only</label>
+            <label><input type="checkbox" value="" [checked]="isShowAdmin" (change)="showAdmin($event)">Show admin users only</label>
         </div>
         <div class="checkbox">
-            <label><input type="checkbox" value="">Show real-time chart</label>
+            <label><input type="checkbox" value="" [checked]="isShowChart" (change)="showChart($event)">Show real-time chart</label>
         </div>
         <div class="checkbox">
-            <label><input type="checkbox" value="">Show current calls widget</label>
+            <label><input type="checkbox" value="" [checked]="isShowCallWidget" (change)="showCallWidget($event)">Show current calls widget</label>
         </div>
     </div>
 </div>

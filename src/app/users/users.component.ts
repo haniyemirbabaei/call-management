@@ -3,6 +3,7 @@ import { User } from '../shared/user.model';
 import { UsersService } from './users.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { SettingsService } from '../settings/settings.service';
 
 @Component({
   selector: 'app-users',
@@ -13,9 +14,13 @@ export class UsersComponent implements OnInit,OnDestroy {
   users: User[] = [];
   formAddUser: FormGroup;
   subscription:Subscription;
-  constructor(private userService: UsersService) { }
+  filterargs = {role: ''};
+  constructor(private userService: UsersService, private settingsService:SettingsService) { }
 
   ngOnInit(): void {
+    if(this.settingsService.isShowAdmin){
+      this.filterargs = {role: 'Admin'};
+    }
     this.subscription= this.userService.usersChanged.subscribe(
       (users:User[])=>{
         this.users=users;
